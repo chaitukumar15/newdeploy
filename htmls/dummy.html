@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        span{
+
+            display: none;
+
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
@@ -10,5 +18,76 @@
 
         hello guys 
     </h1>
+
+
+
+<form action="">
+
+<input type="text" placeholder="username">
+
+<input type="text" placeholder="pass">
+<br>
+<span>please fill the cred</span>
+
+<input type="submit">
+
+</form>
+
+
+<script>
+
+
+    console.log(document.forms);
+
+    var d=document.forms;
+
+    console.log(d[0]);
+    var arr=[];
+    d[0].addEventListener("submit",function (e){
+
+  
+        e.preventDefault();
+var obj ={
+
+    username:e.target[0].value,
+    pass:e.target[1].value
+}
+
+
+if(obj.username.length ==0 && obj.pass.length == 0){
+  
+    var spn=document.getElementsByTagName("span");
+    e.target[0].style.border="2px solid red";
+    e.target[1].style.border="2px solid red";
+    spn[0].style.display="inline";
+    spn[0].style.color="red";
+}
+
+arr.push(obj)
+console.log(arr);
+
+localStorage.setItem("users",JSON.stringify(arr))
+e.target[0].value="";
+e.target[1].value="";
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
 </body>
 </html>
