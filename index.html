@@ -7,12 +7,72 @@
 </head>
 <body>
   
+<form action="">
 
-    <h1>hi i am a new page</h1>
-    
-    <a href="./htmls/dummy.html">dummy</a>
+<input type="text">
+<input type="submit">
 
-    <img src="./images/mahadev-dp02.jpg" alt="" width="100px">
+</form>
+
+
+
+<script>
+
+var a=document.forms;
+
+var arr=[];
+a[0].addEventListener("submit",function (event){
+event.preventDefault();
+
+
+
+var username={
+
+    user:event.target[0].value
+}
+
+// localStorage.clear()
+
+var f=localStorage.getItem("user")==null?[]:JSON.parse(localStorage.getItem("user"))
+console.log(f);
+
+var dd=f.filter(function(val){
+
+return val.user==username.user
+
+})
+
+console.log(dd);
+
+if(dd.length!=0){
+
+    alert("user already exsts")
+}else{
+    if(username.user.length==0){
+    alert("please enter ")
+}
+else{
+
+    arr.push(username)
+
+localStorage.setItem("user",JSON.stringify(arr))
+
+}
+
+}
+
+
+
+
+
+
+})
+
+
+
+
+
+</script>
 
 </body>
 </html>
